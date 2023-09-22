@@ -1,0 +1,32 @@
+<h2>Employees' List</h2>
+
+<div>
+  <div *ngIf="employees | async as employeesList else notfound">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeesList; index as i">
+          <th scope="row">{{i}}</th>
+          <td>{{employee.name}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.phone}}</td>
+          <td>{{employee.salary}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <ng-template #notfound>
+    <h4>No Employees found</h4>
+  </ng-template>
+
+</div>
